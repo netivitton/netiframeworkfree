@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "21355f89-aff9-468c-8a03-e271fb967f06",
+		"name": "newframework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth Flows",
+			"item": [
+				{
+					"name": "Password Grant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"AccessToken\", data.access_token);",
+									"postman.setEnvironmentVariable(\"RefreshToken\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{CLIENTTOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "adminmain",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/oauth/token",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"AccessToken\", data.access_token);",
+									"postman.setEnvironmentVariable(\"RefreshToken\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{CLIENTTOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{RefreshToken}}",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/oauth/token",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client Credentials Grant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"AccessToken\", data.access_token);",
+									"postman.setEnvironmentVariable(\"RefreshToken\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{CLIENTTOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/oauth/token",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authorize ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"code\", data.code);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AccessToken}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{localhost}}/authorise?response_type=code&client_id=xc8nT6QfcI&redirect_uri=http://localhost:4200/me&state=teststate&scope=profile",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"authorise"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "xc8nT6QfcI"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:4200/me"
+								},
+								{
+									"key": "state",
+									"value": "teststate"
+								},
+								{
+									"key": "scope",
+									"value": "profile"
+								}
+							]
+						},
+						"description": "Based on Bearer Token in Password Grant"
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Grant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"AccessToken\", data.access_token);",
+									"postman.setEnvironmentVariable(\"RefreshToken\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CLIENTTOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "{{code}}",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:4200/me",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/oauth/token",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						},
+						"description": "Based on code in Authorize"
+					},
+					"response": []
+				},
+				{
+					"name": "Secure Area ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AccessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/user/secure",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"user",
+								"secure"
+							]
+						},
+						"description": "Accessbile with Bearer Token"
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AccessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/user/profile",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						},
+						"description": "Accessbile with Bearer Token"
+					},
+					"response": []
+				},
+				{
+					"name": "Session req.user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AccessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/user/me",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"user",
+								"me"
+							]
+						},
+						"description": "Accessbile with Bearer Token"
+					},
+					"response": []
+				},
+				{
+					"name": "Session req.user Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AccessToken}}"
+							},
+							{
+								"key": "accept-language",
+								"value": "th",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/user/test_post",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"user",
+								"test_post"
+							]
+						},
+						"description": "Accessbile with Bearer Token"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"CLIENTTOKEN\", data.BODY.client_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "adminmain",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost}}/login",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
