@@ -1,6 +1,6 @@
 # # Framework API NODEJS Oauth2 Develop By Netivit Yuraphan
 
-Please refer this [Fully functional OAuth 2.0 Implementation with production example](https://identity.parkenconsulting.com/guide/nodejs-oauth-implementation.html) with [node-oauth2-server#2.4.0](https://www.npmjs.com/package/node-oauth2-server)
+Please refer this [node-oauth2-server#2.4.0](https://www.npmjs.com/package/node-oauth2-server)
 
 Supports `    "oauth2-server": "^3.1.1",`
          `     "i18n": "^0.13.2",`
@@ -17,6 +17,10 @@ Supports `    "oauth2-server": "^3.1.1",`
 ## Quick Start
 
 The module provides two middlewares, one for authorization and routing, another for error handling, use them as you would any other middleware:
+
+Import DB Example in DB/oauth_demo mysql 
+Edit file .env.development
+
 `npm install`
 `npm run start-dev`
 
