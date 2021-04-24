@@ -3,16 +3,18 @@
 Please refer this [oauth2-server#3.1.1](https://www.npmjs.com/package/oauth2-server)
 [sequelize#6.3.4](https://sequelize.org/master/)
 [i18n#0.13.2](https://www.npmjs.com/package/i18n)
+[async#3.2.0](https://caolan.github.io/async/v3/)
 
-Supports `    "oauth2-server": "^3.1.1",`
-         `     "i18n": "^0.13.2",`
-         `     "mysql2": "^2.1.0",`
-         `     "sequelize": "^6.3.4",`
-         `     "express": "^4.17.1",`
-         `     "dotenv": "^8.2.0",`
-         `     "aws-sdk": "^2.892.0",`
-         `     "azure-storage": "^2.10.3",`
-         `      Docker`
+Supports `     oauth2-server: ^3.1.1,`
+         `     i18n: ^0.13.2,`
+         `     mysql2: ^2.1.0,`
+         `     sequelize: ^6.3.4,`
+         `     express: ^4.17.1,`
+         `     dotenv: ^8.2.0,`
+         `     aws-sdk: ^2.892.0,`
+         `     azure-storage: ^2.10.3,`
+         `     async: ^3.2.0,`
+         `     Docker`
         System Start Expire App in DB expiration_app expiration
     
          

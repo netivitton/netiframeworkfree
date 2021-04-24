@@ -10,6 +10,7 @@
   "author": "Netivit Yuraphan",
   "license": "MIT",
   "dependencies": {
+    "async": "^3.2.0",
     "aws-sdk": "^2.892.0",
     "azure-storage": "^2.10.3",
     "dotenv": "^8.2.0",
