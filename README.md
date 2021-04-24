@@ -18,7 +18,7 @@ Supports `    "oauth2-server": "^3.1.1",`
 
 The module provides two middlewares, one for authorization and routing, another for error handling, use them as you would any other middleware:
 `npm install`
-`npm start-dev`
+`npm run start-dev`
 
 ## Features
 
