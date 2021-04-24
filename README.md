@@ -1,6 +1,8 @@
 # # Framework API NODEJS Oauth2 Develop By Netivit Yuraphan
 
-Please refer this [node-oauth2-server#2.4.0](https://www.npmjs.com/package/node-oauth2-server)
+Please refer this [oauth2-server#3.1.1](https://www.npmjs.com/package/oauth2-server)
+[sequelize#6.3.4](https://sequelize.org/master/)
+[i18n#0.13.2](https://www.npmjs.com/package/i18n)
 
 Supports `    "oauth2-server": "^3.1.1",`
          `     "i18n": "^0.13.2",`
