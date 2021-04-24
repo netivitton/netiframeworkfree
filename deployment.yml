@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: netiframework-api
+  name: netiframework-api
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: netiframework-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: netiframework-api
+    spec:
+      containers:
+      - image: netiframework
+        name: netiframework
+        imagePullPolicy: Never
+        resources: {}
+        ports:
+          - containerPort: 4200 
+        env:
+          - name: PASSWORD
+            value: ""
+status: {}

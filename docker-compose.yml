@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    nodejs:
+      environment:
+        -PASSWORD
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: netiframework
+      container_name: netiframework
+      restart: unless-stopped
+      ports:
+        - "4200:4200"

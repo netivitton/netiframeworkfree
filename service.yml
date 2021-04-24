@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: netiframework-api
+  labels:
+    run: netiframework-api
+spec:
+  ports:
+  - port: 4200
+    protocol: TCP
+  selector:
+    app: netiframework-api
+  type: NodePort

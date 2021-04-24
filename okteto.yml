@@ -1,0 +1,10 @@
+name: netiframework
+autocreate: true
+image: okteto/node:14
+command: bash
+workdir: /usr/src/app
+sync:
+- .:/usr/src/app
+forward:
+- 9229:9229
+- 4200:4200
