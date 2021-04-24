@@ -17,7 +17,7 @@ spec:
         name: netiframework
         env:
           - name: PASSWORD
-            value: "Server_pass"
+            value: ""
         resources:
           limits:
             memory: 512Mi
